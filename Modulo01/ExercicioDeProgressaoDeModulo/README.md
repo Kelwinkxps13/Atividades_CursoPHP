@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ExercicioModulo1_CursoPHP
 
 Módulo I - Desenvolvimento Web com HTML, CSS e Bootstrap
@@ -42,4 +41,3 @@ Observações:
 =======
 # Atividades_CursoPHP
 todas as atividades do curso de php
->>>>>>> 92577344ccafafc2821fc6a28bd6c80c5c9b7290
