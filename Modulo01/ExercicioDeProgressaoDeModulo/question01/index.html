@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--linkar a página com o bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Questão 01</title>
+</head>
+<body>
+    
+    <!-- div principal-->
+    <div class="container">
+        <div class="row" style="margin-top: 5px;">
+
+            <!--col onde vai ficar o formulario-->
+            <div class="col-8 offset-2">
+
+                <!--card onde vai ficar o formulário-->
+                <div class="card">
+
+                    <!--cabeça do card-->
+                    <div class="card-header bg-success">
+                        Formulário
+                    </div>
+    
+                    <!--corpo do card-->
+                    <div class="card-body">
+                        
+                        <div class="row">
+
+                            <!--div onde fica o preenchimento do email-->
+                            <div class="mb-3 col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            </div>
+
+                            <!--div onde fica o preenchimento da senha-->
+                            <div class="mb-3 col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            </div>
+
+                            <!--div onde fica o preenchimento da mensagem-->
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="digite aqui sua mensagem"></textarea>
+                            </div>
+
+                            <!--div onde fica o botão de enviar dados-->
+                            <div class="col-12 mt-3">
+                                <p class="text-end">
+                                    <button class="btn btn-outline-success">Enviar Dados</button>
+                                </p>
+                            </div>
+                        </div>    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
