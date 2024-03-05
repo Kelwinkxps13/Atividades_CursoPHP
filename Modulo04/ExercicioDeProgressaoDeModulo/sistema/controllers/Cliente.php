@@ -16,7 +16,7 @@
             break;
 
             case 'insert':
-                $_POST['tipoAcesso'] = "cliente";
+
                 $_POST['senha'] = sha1($_POST['senha']);
                 $manager->insert_common("usuarios", $_POST, null);
             break;

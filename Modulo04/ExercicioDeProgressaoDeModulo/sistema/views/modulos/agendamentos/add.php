@@ -1,4 +1,10 @@
+<?php
 
+include_once 'models/Connect.php';
+include_once 'models/Manager.php';
+
+$choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "medico"], null);
+?>
 <div class="container-fluid px-4">
     <h1 class="mt-4"><?= $titleSection; ?></h1>
     <ol class="breadcrumb mb-4">
@@ -13,25 +19,42 @@
         </div>
         <div class="card-body">
             <!-- Conteúdo real da página -->
-            <form action="<?=Config::urlBase();?>/controllers/Agendamentos.php?" method="POST" class="form-horizontal mt-4" enctype="multipart/form-data">
+            <form action="<?= Config::urlBase(); ?>/controllers/Agendamentos.php?" method="POST" class="form-horizontal mt-4" enctype="multipart/form-data">
                 <div class="row">
-                    
+
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome do Médico </label>
-                            <input name="nomeMedico" type="text" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="">
+                            <select name="nomeMedico" class="form-select" aria-label="Default select example" required>
+                                <option selected>Escolha o Médico</option>
+                                <?php foreach ($choice as $value) : ?>
+                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-3">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Data da Consulta </label>
-                            <input name="dataConsulta" type="data" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="">
+                            <input name="dataC" type="date" class="form-control" id="data" placeholder1="Nome do Produto" value="" required>
                         </div>
                     </div>
-
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Hora da Consulta </label>
+                        <select name="horaC" class="form-select" aria-label="Default select example" required>
+                            <option selected>Escolha a hora</option>
+                            <?php for ($i = 7; $i < 22; $i++) : ?>
+                                <?php if ($i < 10) : ?>
+                                    <option value="<?= "0" . $i . ":00:00" ?>"><?= "0" . $i . ":00:00" ?></option>
+                                <?php elseif ($i > 9) : ?>
+                                    <option value="<?= $i . ":00:00" ?>"><?= $i . ":00:00" ?></option>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </select>
+                    </div>
                     <input type="hidden" value="insert" name="action">
-                    
+
                     <div class="col-12 mt-3">
                         <p class="text-end">
                             <button class="btn btn-outline-success" type="submit">
@@ -45,3 +68,17 @@
         </div>
     </div>
 </div>
+<script>
+    window.onload = function() {
+        var amanha = new Date();
+        amanha.setDate(amanha.getDate() + 1);
+
+        var ano = amanha.getFullYear();
+        var mes = ("0" + (amanha.getMonth() + 1)).slice(-2);
+        var dia = ("0" + amanha.getDate()).slice(-2);
+
+        var dataAmanha = ano + "-" + mes + "-" + dia;
+        
+        document.getElementById('data').min = dataAmanha;
+    }
+</script>

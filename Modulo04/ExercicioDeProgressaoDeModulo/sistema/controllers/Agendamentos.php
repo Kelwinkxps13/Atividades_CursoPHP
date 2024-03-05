@@ -16,18 +16,27 @@
             break;
 
             case 'insert':
-                $x = $manager->select_common("usuarios", ["id", "cpf"], ['id'=>$_SESSION[sha1("user_data")][0]["id"]], null);
-                $_POST['idCliente'] = $x[0]["id"];
-                $_POST['cpfCliente'] = $x[0]["cpf"];
+
+                $_POST['dataConsulta'] = $_POST['dataC']." ".$_POST['horaC'];
+                unset($_POST['dataC']);
+                unset($_POST['horaC']);
+
+                $searchUser = $manager->select_common("usuarios", ["id", "cpf"], ['id'=>$_SESSION[sha1("user_data")][0]["id"]], null);
+                $_POST['idCliente'] = $searchUser[0]["id"];
+                $_POST['cpfCliente'] = $searchUser[0]["cpf"];
                 $_POST['nomeCliente'] = $_SESSION[sha1("user_data")][0]["nome"];
                 $_POST['emailCliente'] = $_SESSION[sha1("user_data")][0]["email"];
-                $y = $manager->select_common("usuarios", ["id", "cargo"], ["nome"=>$_POST['nomeMedico']], null);
-                $_POST['idMedico'] = $y[0]["id"];
-                $_POST['cargoMedico'] = $y[0]["cargo"];
+                
+                $searchMedico = $manager->select_common("usuarios", ["id", "cargo"], ["nome"=>$_POST['nomeMedico']], null);
+                $_POST['idMedico'] = $searchMedico[0]["id"];
+                $_POST['cargoMedico'] = $searchMedico[0]["cargo"];
                 $manager->insert_common("agendamentos", $_POST, null);
             break;
 
             case 'update':
+                $_POST['dataConsulta'] = $_POST['dataC']." ".$_POST['horaC'];
+                unset($_POST['dataC']);
+                unset($_POST['horaC']);
                 $manager->update_common("agendamentos", $_POST, ["id"=>$_POST['id']], null);
             break;
 

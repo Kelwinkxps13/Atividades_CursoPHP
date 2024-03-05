@@ -19,7 +19,6 @@
                     <th>Email</th>
                     <th>Tipo Acesso</th>
                     <th>Cargo</th>
-                    <th>Deletado?</th>
                     <th>Cadastro</th>
                     <th>Ações</th>
                 </thead>
@@ -30,8 +29,7 @@
                             <td><?=$l['nome'];?></td>    
                             <td><?=$l['email'];?></td>    
                             <td><?=$l['tipoAcesso'];?></td>    
-                            <td><?=$l['cargo'];?></td>
-                            <td><?=($l['isDeleted']=='') ? "Não" : "Sim";?></td>    
+                            <td><?=$l['cargo'];?></td>  
                             <td><?=$l['criadoEm'];?></td>
                             <td>
 

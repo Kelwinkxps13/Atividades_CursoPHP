@@ -33,11 +33,11 @@
                                     <div class="card-body">
                                         <form action="controllers/login.php" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email"/>
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email" required/>
                                                 <label for="inputEmail">Email</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="senha"/>
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="senha" required/>
                                                 <label for="inputPassword">Senha</label>
                                             </div>
                                             <div class="col-12">

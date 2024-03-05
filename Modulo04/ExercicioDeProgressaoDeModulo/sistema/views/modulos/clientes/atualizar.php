@@ -13,12 +13,12 @@
         </div>
         <div class="card-body">
             <!-- Conteúdo real da página -->
-            <form action="<?=Config::urlBase();?>/controllers/Cliente.php" method="POST" class="form-horizontal mt-4" enctype="multipart/form-data">
+            <form action="<?=Config::urlBase();?>/controllers/Cliente.php" method="POST" class="form-horizontal mt-4" enctype="multipart/form-data" >
                 <div class="row">
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome </label>
-                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['nome'];?>">
+                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['nome'];?>" required>
                         </div>
                     </div>
                     
@@ -26,21 +26,21 @@
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Email </label>
-                            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['email'];?>">
+                            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['email'];?>" required>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Senha </label>
-                            <input name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['senha'];?>">
+                            <input name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['senha'];?>" required>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Cargo </label>
-                            <input name="cargo" type="text" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['cargo'];?>">
+                            <input name="cargo" type="text" class="form-control" id="exampleFormControlInput1" placeholder1="Nome do Produto" value="<?=$data['cargo'];?>" required>
                         </div>
                     </div>
 
