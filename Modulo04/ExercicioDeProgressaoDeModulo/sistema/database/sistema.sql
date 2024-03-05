@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 03-Mar-2024 às 21:48
+-- Tempo de geração: 05-Mar-2024 às 23:33
 -- Versão do servidor: 8.0.30
 -- versão do PHP: 8.1.10
 
@@ -46,8 +46,8 @@ CREATE TABLE `agendamentos` (
 --
 
 INSERT INTO `agendamentos` (`id`, `idCliente`, `nomeCliente`, `emailCliente`, `cpfCliente`, `idMedico`, `cargoMedico`, `nomeMedico`, `criadoEm`, `dataConsulta`, `isDeleted`) VALUES
-(5, 7, 'Joao', 'joao@email.com', '632.585.173-04', 6, 'Neurologista', 'Foreman', '2024-03-03 21:44:04', '2024-03-15 12:00:10', NULL),
-(6, 3, 'Jesso', 'jesso@email.com', '60395513305', 4, 'Diagnosticador', 'House', '2024-03-03 21:47:30', '2024-03-15 12:00:15', NULL);
+(14, 3, 'Jesso', 'jesso@email.com', '60395513305', 6, 'Neurologista', 'Foreman', '2024-03-05 22:25:22', '2024-03-07 18:00:00', NULL),
+(15, 2, 'Kelwin Jhackson', 'kelwin@email.com', '12345678902', 9, 'Imunologista', 'Cameron', '2024-03-05 22:32:01', '2024-03-07 18:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `cpf`, `senha`, `tipoAcesso`, `ca
 (3, 'Jesso', 'jesso@email.com', '60395513305', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'cliente', '', '2024-03-03 11:21:23', NULL),
 (4, 'House', 'housemd@email.com', '12345678903', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'medico', 'Diagnosticador', '2024-03-03 11:21:23', NULL),
 (6, 'Foreman', 'foreman@email.com', '12346876954', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'medico', 'Neurologista', '2024-03-03 21:22:16', NULL),
-(7, 'Joao', 'joao@email.com', '632.585.173-04', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'cliente', 'Contador', '2024-03-03 21:39:53', NULL);
+(9, 'Cameron', 'cameron@email.com', '12345678905', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'medico', 'Imunologista', '2024-03-05 22:31:16', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -103,13 +103,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

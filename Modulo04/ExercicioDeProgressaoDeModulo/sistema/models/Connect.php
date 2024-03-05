@@ -1,5 +1,6 @@
 <?php
 
+	# classe de conexao
 	class Connect{
 		
 		public static $instance;

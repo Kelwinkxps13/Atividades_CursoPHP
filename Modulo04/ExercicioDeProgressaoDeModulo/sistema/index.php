@@ -1,11 +1,12 @@
 <?php
 
+    # inicia uma sessao
     session_start();
 
+    # caso haja uma sessao na posicao sha1(user_data), ele redireciona para a pagina inicial do sistema
     if(isset($_SESSION[sha1("user_data")])){
         $dadosUsuario = $_SESSION[sha1("user_data")];
-        //var_dump($dadosUsuario);
-        header("location: sistema.php");
+        header("location: sistema.php?pagina=dashboard");
     }
 
 ?>
