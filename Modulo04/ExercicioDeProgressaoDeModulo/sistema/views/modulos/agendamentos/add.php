@@ -3,7 +3,7 @@
 include_once 'models/Connect.php';
 include_once 'models/Manager.php';
 
-$choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "medico"], null);
+$choice = (new Manager)->select_common("usuarios", ["nome", "cpf"], ['tipoAcesso' => "medico"], null);
 ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4"><?= $titleSection; ?></h1>
@@ -24,11 +24,11 @@ $choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "m
 
                     <div class="col-6">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome do Médico </label>
+                            <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome e CPF do Médico </label>
                             <select name="nomeMedico" class="form-select" aria-label="Default select example" required>
                                 <option selected>Escolha o Médico</option>
                                 <?php foreach ($choice as $value) : ?>
-                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"] ?></option>
+                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"]." - ".$value["cpf"] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
