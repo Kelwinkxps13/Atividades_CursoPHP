@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `agendamentos` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `idCliente` int NOT NULL,
   `nomeCliente` varchar(40) NOT NULL,
   `emailCliente` varchar(40) NOT NULL,
@@ -46,9 +46,9 @@ CREATE TABLE `agendamentos` (
 -- Extraindo dados da tabela `agendamentos`
 --
 
-INSERT INTO `agendamentos` (`id`, `idCliente`, `nomeCliente`, `emailCliente`, `cpfCliente`, `idMedico`, `cargoMedico`, `nomeMedico`, `criadoEm`, `dataConsulta`, `isDeleted`) VALUES
-(14, 3, 'Jesso', 'jesso@email.com', '60395513305', 6, 'Neurologista', 'Foreman', '2024-03-05 22:25:22', '2024-03-07 18:00:00', NULL),
-(15, 2, 'Kelwin Jhackson', 'kelwin@email.com', '12345678902', 9, 'Imunologista', 'Cameron', '2024-03-05 22:32:01', '2024-03-07 18:00:00', NULL);
+INSERT INTO `agendamentos` (`id`, `idCliente`, `nomeCliente`, `emailCliente`, `cpfCliente`, `idMedico`, `cargoMedico`, `nomeMedico`, `cpfMedico`,`criadoEm`, `dataConsulta`, `isDeleted`) VALUES
+(14, 3, 'Jesso', 'jesso@email.com', '60395513305', 6, 'Neurologista', 'Foreman', '12346876954','2024-03-05 22:25:22', '2024-03-07 18:00:00', NULL),
+(15, 2, 'Kelwin Jhackson', 'kelwin@email.com', '12345678902', 9, 'Imunologista', 'Cameron', '12345678905','2024-03-05 22:32:01', '2024-03-07 18:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -57,10 +57,10 @@ INSERT INTO `agendamentos` (`id`, `idCliente`, `nomeCliente`, `emailCliente`, `c
 --
 
 CREATE TABLE `usuarios` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nome` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `cpf` varchar(15) NOT NULL,
+  `cpf` varchar(15) NOT NULL PRIMARY KEY,
   `senha` varchar(40) NOT NULL,
   `tipoAcesso` varchar(10) NOT NULL,
   `cargo` varchar(40) NOT NULL,
