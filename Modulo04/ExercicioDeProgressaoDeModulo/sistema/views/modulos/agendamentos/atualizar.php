@@ -29,7 +29,7 @@ $choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "m
                             <select name="nomeMedico" class="form-select" aria-label="Default select example" required>
                                 <option selected>Escolha o Médico</option>
                                 <?php foreach ($choice as $value) : ?>
-                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"] ?></option>
+                                    <option value="<?= $value["cpf"] ?>"><?= $value["nome"]." - ".$value["cpf"] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
