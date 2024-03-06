@@ -31,8 +31,17 @@ if ($_REQUEST['action']) {
             # define o post senha como o sha1 dele mesmo (criptografia)
             $_POST['senha'] = sha1($_POST['senha']);
 
-            # insere os dados
-            $manager->insert_common("usuarios", $_POST, null);
+            # verifica se o usuario ja existe
+            $isset = $manager->select_common("usuarios", ["cpf"], $_POST, null);
+            if($isset){
+
+                # caso ele exista, ele retorna com erro
+                header("location: " . Config::urlBase() . "?message=OcorreuUmErroAoTentarSeCadastrar");
+            }
+            # caso não exista, ele cadastra
+            else{
+                $manager->insert_common("usuarios", $_POST, null);
+            }
             break;
 
         case 'update':
