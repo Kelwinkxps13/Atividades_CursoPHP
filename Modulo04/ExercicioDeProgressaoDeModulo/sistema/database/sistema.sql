@@ -36,6 +36,7 @@ CREATE TABLE `agendamentos` (
   `idMedico` int NOT NULL,
   `cargoMedico` varchar(50) NOT NULL,
   `nomeMedico` varchar(50) NOT NULL,
+  `cpfMedico` varchar(15) NOT NULL,
   `criadoEm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dataConsulta` timestamp NULL DEFAULT NULL,
   `isDeleted` varchar(1) DEFAULT NULL
