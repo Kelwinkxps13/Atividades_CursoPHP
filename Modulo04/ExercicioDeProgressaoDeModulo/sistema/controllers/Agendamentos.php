@@ -48,7 +48,7 @@ if ($_REQUEST['action']) {
             $_POST['emailCliente'] = $_SESSION[sha1("user_data")][0]["email"];
 
             # consulta os dados necessarios do médico, por meio de seu nome.
-            $searchMedico = $manager->select_common("usuarios", ["id", "cargo"], ["nome" => $_POST['nomeMedico']], null);
+            $searchMedico = $manager->select_common("usuarios", ["id", "cargo"], ["cpf" => $_POST['cpfMedico']], null);
 
             # seta o idMedico.
             $_POST['idMedico'] = $searchMedico[0]["id"];
