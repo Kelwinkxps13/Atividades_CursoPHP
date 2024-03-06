@@ -25,10 +25,10 @@ $choice = (new Manager)->select_common("usuarios", ["nome", "cpf"], ['tipoAcesso
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome e CPF do Médico </label>
-                            <select name="nomeMedico" class="form-select" aria-label="Default select example" required>
+                            <select name="cpfMedico" class="form-select" aria-label="Default select example" required>
                                 <option selected>Escolha o Médico</option>
                                 <?php foreach ($choice as $value) : ?>
-                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"]." - ".$value["cpf"] ?></option>
+                                    <option value="<?= $value["cpf"] ?>"><?= $value["nome"]." - ".$value["cpf"] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
