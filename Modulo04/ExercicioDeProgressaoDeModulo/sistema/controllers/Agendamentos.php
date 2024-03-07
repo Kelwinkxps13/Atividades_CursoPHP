@@ -47,17 +47,14 @@ if ($_REQUEST['action']) {
             # seta o email com o session email.
             $_POST['emailCliente'] = $_SESSION[sha1("user_data")][0]["email"];
 
-            # consulta os dados necessarios do médico, por meio de seu nome.
-            $searchMedico = $manager->select_common("usuarios", ["id", "cargo", "cpf"], ["cpf" => $_POST['cpfMedico']], null);
+            # consulta os dados necessarios do médico, por meio de seu cpf.
+            $searchMedico = $manager->select_common("usuarios", ["id", "cargo"], ["cpf" => $_POST['cpfMedico']], null);
 
             # seta o idMedico.
             $_POST['idMedico'] = $searchMedico[0]["id"];
 
             # seta o cargoMedico.
             $_POST['cargoMedico'] = $searchMedico[0]["cargo"];
-
-            # seta o cpfMedico.
-            $_POST['cpfMedico'] = $searchMedico[0]["cpf"];
 
             # Finalmente inserindo o agendamento no banco de dados.
             $manager->insert_common("agendamentos", $_POST, null);
@@ -72,17 +69,14 @@ if ($_REQUEST['action']) {
             unset($_POST['dataC']);
             unset($_POST['horaC']);
 
-            # consulta os dados necessarios do médico, por meio de seu nome.
-            $searchMedico = $manager->select_common("usuarios", ["id", "cargo", "cpf"], ["cpf" => $_POST['cpfMedico']], null);
+            # consulta os dados necessarios do médico, por meio de seu cpf.
+            $searchMedico = $manager->select_common("usuarios", ["id", "cargo"], ["cpf" => $_POST['cpfMedico']], null);
 
             # seta o idMedico.
             $_POST['idMedico'] = $searchMedico[0]["id"];
 
             # seta o cargoMedico.
             $_POST['cargoMedico'] = $searchMedico[0]["cargo"];
-
-            # seta o cpfMedico.
-            $_POST['cpfMedico'] = $searchMedico[0]["cpf"];
 
             # atualizando o agendamento no banco de dados
             $manager->update_common("agendamentos", $_POST, ["id" => $_POST['id']], null);
