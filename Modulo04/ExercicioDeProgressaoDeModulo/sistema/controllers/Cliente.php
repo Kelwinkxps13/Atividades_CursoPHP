@@ -32,7 +32,7 @@ if ($_REQUEST['action']) {
             $_POST['senha'] = sha1($_POST['senha']);
 
             # verifica se o usuario ja existe
-            $isset = $manager->select_common("usuarios", null, $_POST['cpf'], null);
+            $isset = $manager->select_common("usuarios", null, ['cpf'=>$_POST['cpf'], 'email'=>$_POST['email']], null);
             if($isset){
 
                 # caso ele exista, ele retorna com erro
