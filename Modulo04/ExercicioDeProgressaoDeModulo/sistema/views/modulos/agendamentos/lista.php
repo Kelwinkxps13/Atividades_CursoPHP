@@ -22,6 +22,7 @@
                     <?php endif; ?>
                     <th>Cargo do Médico</th>
                     <th>Nome do Médico</th>
+                    <th>CPF do Medico</th>
                     <th> Cadastro </th>
                     <th>Data da Consulta</th>
                     <th>Ações</th>
@@ -39,6 +40,7 @@
                                 <?php endif; ?>
                                 <td><?= $l['cargoMedico']; ?></td>
                                 <td><?= $l['nomeMedico']; ?></td>
+                                <td><?= $l['cpfMedico']; ?></td>
                                 <td><?= $l['criadoEm']; ?></td>
                                 <td><?= $l['dataConsulta']; ?></td>
                                 <td>
@@ -50,6 +52,7 @@
                                     <td><?= $l['idMedico']; ?></td>
                                 <td><?= $l['cargoMedico']; ?></td>
                                 <td><?= $l['nomeMedico']; ?></td>
+                                <td><?= $l['cpfMedico']; ?></td>
                                 <td><?= $l['criadoEm']; ?></td>
                                 <td><?= $l['dataConsulta']; ?></td>
                                 <td>

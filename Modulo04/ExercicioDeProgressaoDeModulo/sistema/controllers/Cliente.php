@@ -31,8 +31,35 @@ if ($_REQUEST['action']) {
             # define o post senha como o sha1 dele mesmo (criptografia)
             $_POST['senha'] = sha1($_POST['senha']);
 
-            # insere os dados
-            $manager->insert_common("usuarios", $_POST, null);
+            # verifica se o usuario ja existe pelo cpf
+            $issetCPF = $manager->select_common("usuarios", null, ['cpf'=>$_POST['cpf']], null);
+
+            # verifica se o usuario ja existe pelo email
+            $issetEMAIL = $manager->select_common("usuarios", null, ['email'=>$_POST['email']], null);
+
+
+            # if pra saber se o usuario existe pelo cpf
+            if($issetCPF){
+
+                # caso ele exista, ele retorna com erro
+                header("location: " . Config::urlBase() . "?message=OcorreuUmErroAoTentarSeCadastrar");
+            }
+
+            # if pra saber se o usuario existe pelo email
+            else if($issetEMAIL){
+
+                # caso ele exista, ele retorna com erro
+                header("location: " . Config::urlBase() . "?message=OcorreuUmErroAoTentarSeCadastrar");
+            }
+
+            # caso não exista, ele cadastra
+            else{
+
+                $manager->insert_common("usuarios", $_POST, null);
+
+                # leva de volta pra tela inicial com uma mensagem por get
+                header("location: " . Config::urlBase() . "?message=cadastroRealizadoComSucesso");
+            }
             break;
 
         case 'update':
@@ -42,19 +69,8 @@ if ($_REQUEST['action']) {
             break;
     }
 
-    # verificando se existe um get action
-    if (isset($_GET['action'])) {
-
-        # caso ele tenha o valor insert
-        if ($_GET['action'] == "insert") {
-
-            # leva de volta pra tela inicial com uma mensagem por get
-            header("location: " . Config::urlBase() . "?message=cadastroRealizadoComSucesso");
-        }
-    } 
-    
-    # caso ele nao tenha um get action, ele ver o tipo de acesso do usuario logado
-    else if (isset($_SESSION[sha1("user_data")][0]["tipoAcesso"])) {
+    # ele ver o tipo de acesso do usuario logado
+    if (isset($_SESSION[sha1("user_data")][0]["tipoAcesso"])) {
 
         # possiveis escolhas e seus redirecionamentos pra cada tipo de usuario
         switch ($_SESSION[sha1("user_data")][0]["tipoAcesso"]) {

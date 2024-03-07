@@ -38,7 +38,6 @@ function validarPagina()
 
         # redireciona para atualizar um agendamento
         case 'atualizarAgendamento':
-            $data = (new Manager)->select_common("agendamentos", null, ['id' => $_GET['id']], null)[0];
             $titleSection = "Atualizar Agendamento";
             include_once Config::pathBase() . "/views/modulos/agendamentos/atualizar.php";
             break;

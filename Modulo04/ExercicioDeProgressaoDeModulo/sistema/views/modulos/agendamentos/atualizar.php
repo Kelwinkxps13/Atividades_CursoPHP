@@ -3,7 +3,7 @@
 include_once 'models/Connect.php';
 include_once 'models/Manager.php';
 
-$choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "medico"], null);
+$choice = (new Manager)->select_common("usuarios", ["nome", "cpf"], ['tipoAcesso' => "medico"], null);
 
 ?>
 <div class="container-fluid px-4">
@@ -25,11 +25,11 @@ $choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "m
 
                     <div class="col-6">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome do Médico </label>
-                            <select name="nomeMedico" class="form-select" aria-label="Default select example" required>
-                                <option selected>Escolha o Médico</option>
+                            <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Nome e CPF do Médico </label>
+                            <select name="cpfMedico" class="form-select" aria-label="Default select example" required>
+                            <option value="">Escolha o Médico</option>
                                 <?php foreach ($choice as $value) : ?>
-                                    <option value="<?= $value["nome"] ?>"><?= $value["nome"] ?></option>
+                                    <option value="<?=$value["cpf"]?>"><?= $value["nome"]." - ".$value["cpf"] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -44,7 +44,7 @@ $choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "m
                     <div class="col-3">
                         <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Hora da Consulta </label>
                         <select name="horaC" class="form-select" aria-label="Default select example" required>
-                            <option selected>Escolha a hora</option>
+                            <option value="">Escolha a hora</option>
                             <?php for ($i = 7; $i < 22; $i++) : ?>
                                 <?php if ($i < 10) : ?>
                                     <option value="<?= "0" . $i . ":00:00" ?>"><?= "0" . $i . ":00:00" ?></option>
@@ -54,9 +54,8 @@ $choice = (new Manager)->select_common("usuarios", ["nome"], ['tipoAcesso' => "m
                             <?php endfor; ?>
                         </select>
                     </div>
-
                     <input type="hidden" value="update" name="action">
-                    <input type="hidden" value="<?= $data['id']; ?>" name="id">
+                    <input type="hidden" value="<?=$_GET['id'];?>" name="id">
 
                     <div class="col-12 mt-3">
                         <p class="text-end">
