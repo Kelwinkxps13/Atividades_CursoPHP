@@ -62,7 +62,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label"><span class="iconify" data-icon="wpf:name" style="color: #198754;"></span> Tipo de Acesso </label>
                                 <select name="tipoAcesso" class="form-select" aria-label="Default select example" required>
-                                    <option selected>Escolha seu tipo de usuário</option>
+                                    <option value="">Escolha seu tipo de usuário</option>
                                     <option value="cliente">Cliente</option>
                                     <option value="medico">Médico</option>
                                 </select>
