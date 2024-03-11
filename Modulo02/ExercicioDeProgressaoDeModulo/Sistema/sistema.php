@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION[sha1("user")])){
-        header("location: index.php/?access=rejected");
+        header("location: index.php?validate=rejected");
     }
 
     include_once 'controllers/validate.php';

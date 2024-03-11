@@ -20,6 +20,18 @@ if (isset($_SESSION[sha1("user")])) {
 
 <body>
 
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2 text-center">
+            <p>
+                <?php if(isset($_GET['validate']) && $_GET['validate'] == "rejected"):?>
+                    <h1>Acesso Negado!</h1>
+                <?php endif; ?>
+            </p>
+        </div>
+    </div>
+</div>
+
     <div class="container">
         <div class="row">
             <div class="col-6 offset-3 mt-3">
